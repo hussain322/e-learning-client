@@ -7,7 +7,7 @@ const Header = () => {
     <div className="bg-blue-100 shadow-lg">
       <div className="navbar w-[90%] mx-auto">
         <div className="flex-1">
-          <div className="bg-gradient-to-r from-pink-500 to-yellow-500 rounded-xl">
+          <div className="bg-gradient-to-r from-pink-500 to-blue-500 rounded-3xl">
             <Link
               to="/"
               className="btn btn-ghost normal-case font-bold text-xl text-white"
@@ -30,7 +30,10 @@ const Header = () => {
             <Link to="/blog" className="ml-6 text-black font-semibold">
               Blog
             </Link>
-            <Link to="/signin" className="ml-6 text-black font-semibold">
+            <Link
+              to="/signin"
+              className="ml-6 text-white font-semibold bg-primary rounded-3xl py-2 px-4"
+            >
               Sign in
             </Link>
             <Link to="" className="ml-6 text-black font-semibold">
