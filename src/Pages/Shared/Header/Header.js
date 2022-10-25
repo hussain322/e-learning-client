@@ -4,35 +4,38 @@ import { FaHamburger } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <div className="bg-base-100 shadow-lg">
+    <div className="bg-blue-100 shadow-lg">
       <div className="navbar w-[90%] mx-auto">
         <div className="flex-1">
-          <div>
-            <Link to="/" className="btn btn-ghost normal-case text-xl">
-              E-learning
+          <div className="bg-gradient-to-r from-pink-500 to-yellow-500 rounded-xl">
+            <Link
+              to="/"
+              className="btn btn-ghost normal-case font-bold text-xl text-white"
+            >
+              E-Learning
             </Link>
           </div>
         </div>
         <div className="flex-none gap-2">
           <div className="mr-12 hidden md:block">
-            <Link to="/home" className="ml-6">
+            <Link to="/home" className="ml-6 text-black font-semibold">
               Home
             </Link>
-            <Link to="/courses" className="ml-6">
+            <Link to="/courses" className="ml-6 text-black font-semibold">
               Courses
             </Link>
-            <a href="" className="ml-6">
+            <Link to="" className="ml-6 text-black font-semibold">
               FAQ
-            </a>
-            <a href="" className="ml-6">
+            </Link>
+            <Link to="/blog" className="ml-6 text-black font-semibold">
               Blog
-            </a>
-            <a href="" className="ml-6">
+            </Link>
+            <Link to="/signin" className="ml-6 text-black font-semibold">
               Sign in
-            </a>
-            <a href="" className="ml-6">
+            </Link>
+            <Link to="" className="ml-6 text-black font-semibold">
               Logout
-            </a>
+            </Link>
           </div>
           <div className="dropdown dropdown-end sm:block md:hidden">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
