@@ -12,6 +12,7 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const SignUp = () => {
   const [error, setError] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const { createUser, googleSignIn } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
 
@@ -60,6 +61,10 @@ const SignUp = () => {
         swal("Good job!", "Account Successfully Login!", "success");
       })
       .catch((error) => setError(swal(error.message, "Oops", "error")));
+  };
+
+  const handleTermsAccepted = (event) => {
+    setTermsAccepted(event.target.checked);
   };
 
   return (
@@ -141,6 +146,7 @@ const SignUp = () => {
                 <div className="flex justify-between py-2">
                   <div className="flex">
                     <input
+                      onClick={handleTermsAccepted}
                       type="checkbox"
                       className="checkbox checkbox-accent mr-2"
                     />
@@ -154,6 +160,7 @@ const SignUp = () => {
                 {/* Login button  */}
                 <div>
                   <button
+                    disabled={!termsAccepted}
                     type="submit"
                     className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-800 hover:to-blue-700 py-3 w-full text-white font-semibold mt-4 rounded"
                   >

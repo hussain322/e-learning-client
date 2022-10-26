@@ -3,10 +3,17 @@ import { Link } from "react-router-dom";
 import { FaHamburger } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
+import swal from "sweetalert";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
-  console.log(user);
+  const { user, logOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        swal("Successfully!", "Logged Out!", "success");
+      })
+      .catch((error) => console.error(error));
+  };
   return (
     <div className="bg-green-100 shadow-lg">
       <div className="navbar w-[90%] mx-auto">
@@ -41,9 +48,12 @@ const Header = () => {
               Sign in
             </Link>
 
-            <Link to="" className="ml-6 text-black font-semibold">
+            <button
+              onClick={handleLogOut}
+              className="ml-6 text-black font-semibold"
+            >
               Logout
-            </Link>
+            </button>
             <span
               className="tooltip tooltip-bottom"
               data-tip={user?.displayName}

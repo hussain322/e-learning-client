@@ -7,6 +7,7 @@ import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home";
 import SignIn from "../../Pages/SignIn/SignIn";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const routes = createBrowserRouter([
   {
@@ -26,7 +27,11 @@ const routes = createBrowserRouter([
         path: "/courses",
         loader: () =>
           fetch("https://e-learning-server-seven.vercel.app/courses"),
-        element: <Courses />,
+        element: (
+          <PrivateRoutes>
+            <Courses />
+          </PrivateRoutes>
+        ),
       },
       {
         path: "/course/:id",
