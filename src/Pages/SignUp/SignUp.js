@@ -2,8 +2,10 @@ import Lottie from "lottie-react";
 import React from "react";
 import { useState } from "react";
 import { useContext } from "react";
+import toast from "react-hot-toast";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 import login from "../../assets/login.json";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
@@ -19,14 +21,32 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(name, photoURL, email, password);
+
+    // Password validation
     if (password.length < 6) {
-      // setError("password must be 8 character");
+      setError("Your password must be 6 characters long");
+    } else {
+      setError("");
     }
+    // if (!/(?=.*?[A-Z])/) {
+    //   setError("At least use one uppercase");
+    // }
+    // if (!/(?=.*?[a-z])/) {
+    //   setError("At least use one lowercase");
+    // }
+    // if (!/(?=.*?[0-9])/) {
+    //   setError("At least use one digit");
+    // }
+    // if (!/(?=.*?[#?!@$%^&*-])/) {
+    //   setError("At least use one special character");
+    // }
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        // toast.success("Account Successfully Create");
+        swal("Good job!", "Account Successfully Logged!", "success");
       })
       .catch((error) => console.error(error));
   };
@@ -115,6 +135,9 @@ const SignUp = () => {
                     />
                     <p>Accept Terms and Conditions</p>
                   </div>
+                </div>
+                <div>
+                  <span className="text-red-400 ml-4">{error}</span>
                 </div>
 
                 {/* Login button  */}

@@ -1,11 +1,32 @@
 import Lottie from "lottie-react";
 import React from "react";
+import { useContext } from "react";
+import { useState } from "react";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import swal from "sweetalert";
 import login from "../../assets/login.json";
+import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 import "./SignIn.css";
 
 const SignIn = () => {
+  const [error, setError] = useState("");
+  const { signIn } = useContext(AuthContext);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        swal("Good job!", "Account Successfully Logged!", "success");
+      })
+      .catch((error) => setError(error.message));
+  };
   return (
     <div className="bg-blue-100 pt-2 pb-40">
       <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2">
@@ -18,7 +39,7 @@ const SignIn = () => {
           </h1>
 
           {/* Login form  */}
-          <form className="mt-2 rounded-lg shadow-lg">
+          <form onSubmit={handleSubmit} className="mt-2 rounded-lg shadow-lg">
             <div className="p-10">
               {/* Email Field  */}
               <div className="form-control py-2">
@@ -28,9 +49,11 @@ const SignIn = () => {
                   </span>
                 </label>
                 <input
-                  type="text"
+                  type="email"
+                  name="email"
                   placeholder="info@site.com"
                   className="input input-bordered"
+                  required
                 />
               </div>
 
@@ -42,9 +65,11 @@ const SignIn = () => {
                   </span>
                 </label>
                 <input
-                  type="text"
+                  type="password"
+                  name="password"
                   placeholder="********"
                   className="input input-bordered"
+                  required
                 />
               </div>
 
@@ -54,6 +79,7 @@ const SignIn = () => {
                     type="checkbox"
                     className="checkbox checkbox-accent mr-2"
                   />
+                  <p>{error}</p>
                   <p>Remember Me</p>
                 </div>
                 <div>
@@ -63,7 +89,10 @@ const SignIn = () => {
 
               {/* Login button  */}
               <div>
-                <button className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-800 hover:to-blue-700   py-3 w-full text-white font-semibold mt-4 rounded">
+                <button
+                  type="submit"
+                  className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-800 hover:to-blue-700   py-3 w-full text-white font-semibold mt-4 rounded"
+                >
                   LOGIN
                 </button>
               </div>
