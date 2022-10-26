@@ -162,7 +162,7 @@ const SignUp = () => {
                   <button
                     disabled={!termsAccepted}
                     type="submit"
-                    className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-800 hover:to-blue-700 py-3 w-full text-white font-semibold mt-4 rounded"
+                    className="bg-blue-500 py-3 w-full text-white font-semibold mt-4 rounded"
                   >
                     REGISTER
                   </button>
