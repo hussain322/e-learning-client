@@ -1,12 +1,14 @@
 .hero-container {
-  background-image: url(../../../assets/hero-bg.png);
-  background-position: left;
-  background-repeat: no-repeat;
-  background-size: contain;
   min-height: 90vh;
   margin-bottom: 50px;
 }
 
 .hero-title {
   margin-top: 200px;
+}
+
+@media only screen and (max-with: 576px) {
+  .hero-title {
+    margin-top: 0px;
+  }
 }
