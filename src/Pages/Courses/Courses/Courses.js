@@ -10,7 +10,7 @@ const Courses = () => {
 
   return (
     <div className="courses-container">
-      <div className="pl-4 shadow-lg slide-bar-container">
+      <div className="pl-4 shadow-lg bg-gray-800">
         {courses.map((course) => (
           <SlideBar key={course.id} course={course} />
         ))}

@@ -3,11 +3,6 @@
   grid-template-columns: 1fr 4fr;
 }
 
-.slide-bar-container {
-  background-color: rgb(33, 30, 30);
-  color: white;
-}
-
 /* Responsive */
 
 @media only screen and (max-width: 600px) {

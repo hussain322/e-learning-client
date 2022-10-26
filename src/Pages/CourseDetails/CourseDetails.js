@@ -22,7 +22,7 @@ const CourseDetails = () => {
         </h1>
       </div>
       <div className="w-[90%] mx-auto">
-        <div className="border shadow-xl w-[60%] rounded-xl mt-4">
+        <div className="border shadow-xl sm:w-full lg:w-[60%] rounded-xl mt-4">
           <img
             src={img}
             alt=""
@@ -31,15 +31,50 @@ const CourseDetails = () => {
           <div className="p-6">
             <h2 className="text-2xl font-semibold pb-2">{title}</h2>
             <p>Instructor: {instructor}</p>
-            <div className="mt-2">
-              <button className="btn btn-outline btn-secondary">
-                Get Premium Access
-              </button>
+            <div className="flex justify-between">
+              <div className="mt-2">
+                <button className="btn btn-outline btn-secondary">
+                  Get Premium Access
+                </button>
+              </div>
+              <div>
+                <span className="text-2xl font-semibold">Ratings: </span>
+                <div className="rating">
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    className="mask mask-star-2 bg-orange-400"
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    className="mask mask-star-2 bg-orange-400"
+                    checked
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    className="mask mask-star-2 bg-orange-400"
+                    checked
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    className="mask mask-star-2 bg-orange-400"
+                    checked
+                  />
+                  <input
+                    type="radio"
+                    name="rating-2"
+                    className="mask mask-star-2 bg-orange-400"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-6 bg-blue-100 p-10 rounded-lg shadow-lg">
+        <div className="mt-6 bg-blue-50 p-10 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold">Course Overview</h2>
           <hr className="h-1 bg-black mt-2" />
           <br />

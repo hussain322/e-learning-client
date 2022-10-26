@@ -5,7 +5,7 @@ import learning from "../../../assets/learning.json";
 
 const Hero = () => {
   return (
-    <div className="hero-container">
+    <div className="hero-container bg-blue-100">
       <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2">
         <div className="hero-title">
           <h5 className="text-yellow-400 text-lg font-semibold">

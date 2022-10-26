@@ -4,7 +4,7 @@ import Slider from "./Slider/Slider";
 
 const Home = () => {
   return (
-    <div className="bg-blue-100">
+    <div>
       <Hero />
       <Slider />
     </div>

@@ -45,11 +45,11 @@ const SignIn = () => {
   };
   return (
     <div className="bg-blue-100 pt-2 pb-40">
-      <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2">
-        <div>
+      <div className="w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-2">
+        <div className="hidden lg:block">
           <Lottie animationData={login} loop={true} />
         </div>
-        <div className="w-3/4 mx-auto mt-4">
+        <div className="md:w-3/4 w-full mx-auto mt-4">
           <h1 className="text-4xl text-primary font-bold mt-4 text-center">
             Welcome
           </h1>
