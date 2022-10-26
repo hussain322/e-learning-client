@@ -5,7 +5,7 @@ const SingleCourse = ({ course }) => {
   const { img, title, instructor, id } = course;
   return (
     <div>
-      <div className="card w-full bg-base-100 hover:shadow-xl duration-[0.4s] border border-gray-1">
+      <div className="card w-full bg-base-100 shadow-md border border-gray-1">
         <figure>
           <img
             src={img}

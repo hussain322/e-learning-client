@@ -13,7 +13,12 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 const SignUp = () => {
   const [error, setError] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
-  const { createUser, googleSignIn } = useContext(AuthContext);
+  const {
+    createUser,
+    googleSignIn,
+    updateUserProfile,
+    verifyEmail,
+  } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
 
   const handleSubmit = (event) => {
@@ -31,27 +36,37 @@ const SignUp = () => {
     } else {
       setError("");
     }
-    // if (!/(?=.*?[A-Z])/) {
-    //   setError("At least use one uppercase");
-    // }
-    // if (!/(?=.*?[a-z])/) {
-    //   setError("At least use one lowercase");
-    // }
-    // if (!/(?=.*?[0-9])/) {
-    //   setError("At least use one digit");
-    // }
-    // if (!/(?=.*?[#?!@$%^&*-])/) {
-    //   setError("At least use one special character");
-    // }
 
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        // toast.success("Account Successfully Create");
+        form.reset();
         swal("Good job!", "Account Successfully Logged!", "success");
+        handleUpdateUserProfile(name, photoURL);
+        handleEmailVerification();
       })
       .catch((error) => console.error(error));
+  };
+
+  //Update Profile
+  const handleUpdateUserProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    updateUserProfile(profile)
+      .then(() => toast.success("Well Done Profile Successfully Updated!"))
+      .catch(() => swal("Oops", "Something wrong", "error"));
+  };
+
+  //Email Verification
+  const handleEmailVerification = () => {
+    verifyEmail()
+      .then(() => {
+        swal("Please Verify", "verification code send your email", "warning");
+      })
+      .catch(() => swal("Oops", "Something wrong", "error"));
   };
 
   const handleGoogleSignIn = () => {
@@ -162,7 +177,11 @@ const SignUp = () => {
                   <button
                     disabled={!termsAccepted}
                     type="submit"
-                    className="bg-blue-500 py-3 w-full text-white font-semibold mt-4 rounded"
+                    className={
+                      termsAccepted
+                        ? "bg-blue-600 py-3 w-full text-white font-semibold mt-4 rounded"
+                        : "bg-blue-400 py-3 w-full text-white font-semibold mt-4 rounded"
+                    }
                   >
                     REGISTER
                   </button>

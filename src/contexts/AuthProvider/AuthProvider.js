@@ -7,6 +7,8 @@ import {
   signInWithPopup,
   onAuthStateChanged,
   signOut,
+  updateProfile,
+  sendEmailVerification,
 } from "firebase/auth";
 import app from "../../firebase/firebase.config";
 import { useState } from "react";
@@ -29,6 +31,16 @@ const AuthProvider = ({ children }) => {
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  //Update Profile
+  const updateUserProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile);
+  };
+
+  // Email Verification
+  const verifyEmail = () => {
+    return sendEmailVerification(auth.currentUser);
   };
 
   // LogOut
@@ -54,7 +66,16 @@ const AuthProvider = ({ children }) => {
     };
   }, []);
 
-  const authInfo = { user, createUser, signIn, googleSignIn, logOut, loading };
+  const authInfo = {
+    user,
+    createUser,
+    signIn,
+    googleSignIn,
+    logOut,
+    loading,
+    updateUserProfile,
+    verifyEmail,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

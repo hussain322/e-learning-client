@@ -9,14 +9,19 @@ const Courses = () => {
   // console.log(courses);
 
   return (
-    <div className="mt-6 courses-container">
-      <div className="ml-4 border-r-2 border-gray-300">
+    <div className="courses-container">
+      <div className="pl-4 shadow-lg slide-bar-container">
         {courses.map((course) => (
           <SlideBar key={course.id} course={course} />
         ))}
       </div>
-      <div>
-        <h1 className="text-4xl text-center font-bold">Courses We Offer</h1>
+      <div className="mt-10">
+        <blockquote class="text-4xl font-bold italic text-center text-slate-900">
+          Courses We
+          <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
+            <span class="relative text-white">Offer</span>
+          </span>
+        </blockquote>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-[90%] mx-auto mt-10">
           {courses.map((course) => (
             <SingleCourse key={course.id} course={course} />
