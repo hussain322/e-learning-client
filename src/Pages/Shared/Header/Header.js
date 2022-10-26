@@ -1,8 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaHamburger } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   return (
     <div className="bg-green-100 shadow-lg">
       <div className="navbar w-[90%] mx-auto">
@@ -36,15 +40,19 @@ const Header = () => {
             >
               Sign in
             </Link>
+
             <Link to="" className="ml-6 text-black font-semibold">
               Logout
             </Link>
+            <span
+              className="tooltip tooltip-bottom"
+              data-tip={user?.displayName}
+            >
+              <img src={user?.photoURL} alt="" className="w-10 rounded-full" />
+            </span>
           </div>
           <div className="dropdown dropdown-end sm:block md:hidden">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              {/* <div className="w-10 rounded-full">
-                <img src="https://placeimg.com/80/80/people" />
-              </div> */}
               <div>
                 <FaHamburger />
               </div>
