@@ -6,7 +6,7 @@ import SlideBar from "./SlideBar/SlideBar";
 
 const Courses = () => {
   const courses = useLoaderData();
-  console.log(courses);
+  // console.log(courses);
 
   return (
     <div className="mt-6 courses-container">

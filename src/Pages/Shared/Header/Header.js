@@ -4,7 +4,7 @@ import { FaHamburger } from "react-icons/fa";
 
 const Header = () => {
   return (
-    <div className="bg-blue-100 shadow-lg">
+    <div className="bg-green-100 shadow-lg">
       <div className="navbar w-[90%] mx-auto">
         <div className="flex-1">
           <div className="bg-gradient-to-r from-pink-500 to-blue-500 rounded-3xl">

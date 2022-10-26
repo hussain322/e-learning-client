@@ -63,7 +63,7 @@ const SignIn = () => {
 
               {/* Login button  */}
               <div>
-                <button className="bg-gradient-to-r from-red-500 to-blue-500 py-3 w-full text-white font-semibold mt-4 rounded">
+                <button className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-800 hover:to-blue-700   py-3 w-full text-white font-semibold mt-4 rounded">
                   LOGIN
                 </button>
               </div>
