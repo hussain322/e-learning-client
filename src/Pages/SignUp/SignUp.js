@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from "firebase/auth";
 import Lottie from "lottie-react";
 import React from "react";
 import { useState } from "react";
@@ -11,7 +12,8 @@ import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
 
 const SignUp = () => {
   const [error, setError] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, googleSignIn } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -49,6 +51,15 @@ const SignUp = () => {
         swal("Good job!", "Account Successfully Logged!", "success");
       })
       .catch((error) => console.error(error));
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        swal("Good job!", "Account Successfully Login!", "success");
+      })
+      .catch((error) => setError(swal(error.message, "Oops", "error")));
   };
 
   return (
@@ -146,13 +157,13 @@ const SignUp = () => {
                     type="submit"
                     className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-800 hover:to-blue-700 py-3 w-full text-white font-semibold mt-4 rounded"
                   >
-                    LOGIN
+                    REGISTER
                   </button>
                 </div>
                 <div className="pt-4 text-right">
                   <p>
                     <Link to="/signin" className="text-primary">
-                      Already have Account?
+                      Already have an Account?
                     </Link>
                   </p>
                 </div>
@@ -162,7 +173,11 @@ const SignUp = () => {
 
             {/* sign in with social platform */}
             <div className="text-center pb-4">
-              <button className="mx-6 tooltip" data-tip="Sign In With Google">
+              <button
+                onClick={handleGoogleSignIn}
+                className="mx-6 tooltip"
+                data-tip="Sign In With Google"
+              >
                 <FaGoogle className="text-secondary text-3xl" />
               </button>
               <button className="mr-6 tooltip" data-tip="Sign In With Facebook">
