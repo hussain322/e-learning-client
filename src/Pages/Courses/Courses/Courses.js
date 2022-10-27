@@ -15,11 +15,11 @@ const Courses = () => {
           <SlideBar key={course.id} course={course} />
         ))}
       </div>
-      <div className="mt-10">
-        <blockquote class="text-4xl font-bold italic text-center text-slate-900">
+      <div className="my-10">
+        <blockquote className="text-4xl font-bold italic text-center text-slate-900">
           Courses We
-          <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
-            <span class="relative text-white">Offer</span>
+          <span className="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
+            <span className="relative text-white">Offer</span>
           </span>
         </blockquote>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-[90%] mx-auto mt-10">
