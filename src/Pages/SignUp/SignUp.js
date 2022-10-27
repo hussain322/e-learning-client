@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import toast from "react-hot-toast";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import login from "../../assets/login.json";
 import { AuthContext } from "../../contexts/AuthProvider/AuthProvider";
@@ -20,6 +20,9 @@ const SignUp = () => {
     verifyEmail,
   } = useContext(AuthContext);
   const googleProvider = new GoogleAuthProvider();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -41,6 +44,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, { replace: true });
         form.reset();
         swal("Good job!", "Account Successfully Logged!", "success");
         handleUpdateUserProfile(name, photoURL);
@@ -73,6 +77,7 @@ const SignUp = () => {
     googleSignIn(googleProvider)
       .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true });
         swal("Good job!", "Account Successfully Login!", "success");
       })
       .catch((error) => setError(swal(error.message, "Oops", "error")));

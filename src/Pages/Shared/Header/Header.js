@@ -4,7 +4,7 @@ import { FaHamburger, FaUser } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../contexts/AuthProvider/AuthProvider";
 import swal from "sweetalert";
-
+import brand from "../../../assets/brand (2).jpg";
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const handleLogOut = () => {
@@ -18,12 +18,13 @@ const Header = () => {
     <div className=" shadow-lg">
       <div className="navbar w-[90%] mx-auto">
         <div className="flex-1">
-          <div className="bg-gradient-to-r from-pink-500 to-blue-500 rounded-3xl">
+          <div className=" rounded flex">
             <Link
               to="/"
-              className="btn btn-ghost normal-case font-bold text-xl text-white"
+              className=" normal-case font-bold text-xl text-white flex items-center"
             >
-              E-Learning
+              <img src={brand} alt="" className="w-28" />
+              <h3 className="text-black text-xl">E-learning</h3>
             </Link>
           </div>
         </div>
