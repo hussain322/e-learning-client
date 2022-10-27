@@ -46,12 +46,13 @@ const Header = () => {
 
           {user?.uid ? (
             <>
-              <button
+              <Link
+                to="/signin"
                 onClick={handleLogOut}
                 className="mr-6 text-black font-semibold"
               >
                 Logout
-              </button>
+              </Link>
 
               {user?.photoURL ? (
                 <span

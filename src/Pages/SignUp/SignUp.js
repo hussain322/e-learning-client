@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import Lottie from "lottie-react";
 import React from "react";
 import { useState } from "react";
@@ -18,8 +18,12 @@ const SignUp = () => {
     googleSignIn,
     updateUserProfile,
     verifyEmail,
+    providerSignIn,
   } = useContext(AuthContext);
+
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
+
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -73,6 +77,7 @@ const SignUp = () => {
       .catch(() => swal("Oops", "Something wrong", "error"));
   };
 
+  // Google sign in
   const handleGoogleSignIn = () => {
     googleSignIn(googleProvider)
       .then((result) => {
@@ -85,6 +90,20 @@ const SignUp = () => {
 
   const handleTermsAccepted = (event) => {
     setTermsAccepted(event.target.checked);
+  };
+
+  //github sign in
+  const handleGithubSignIn = () => {
+    providerSignIn(githubProvider)
+      .then((result) => {
+        console.log(result.user);
+        navigate(from, { replace: true });
+        swal("Good job!", "Account Successfully Login!", "success");
+      })
+      .catch((error) => {
+        console.error(error);
+        setError(swal(error.message, "Oops", "error"));
+      });
   };
 
   return (
@@ -206,16 +225,18 @@ const SignUp = () => {
             <div className="text-center pb-4">
               <button
                 onClick={handleGoogleSignIn}
-                className="mx-6 tooltip"
-                data-tip="Sign In With Google"
+                className="px-6 btn btn-outline btn-primary"
               >
-                <FaGoogle className="text-secondary text-3xl" />
+                <FaGoogle className="text-2xl mr-2" />
+                sign in with Google
               </button>
-              <button className="mr-6 tooltip" data-tip="Sign In With Facebook">
-                <FaFacebook className="text-primary text-3xl" />
-              </button>
-              <button className="mr-6 tooltip" data-tip="Sign In With GitHub">
-                <FaGithub className=" text-3xl" />
+              <br />
+              <button
+                onClick={handleGithubSignIn}
+                className="px-6 btn btn-outline my-4"
+              >
+                <FaGithub className=" text-2xl mr-2" />
+                sign in with github
               </button>
             </div>
           </div>
