@@ -4,7 +4,6 @@ import { useLoaderData } from "react-router-dom";
 const CheckOut = () => {
   const course = useLoaderData();
   const { title, img, description } = course;
-  console.log(course);
   return (
     <div className="hero-container bg-blue-100">
       <div className="w-[90%] mx-auto grid grid-cols-1 md:grid-cols-2">
