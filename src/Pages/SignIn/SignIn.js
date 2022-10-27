@@ -114,10 +114,12 @@ const SignIn = () => {
                       type="checkbox"
                       className="checkbox checkbox-accent mr-2"
                     />
-                    <p>Remember Me</p>
+                    <p className="text-sm md:text-md">Remember Me</p>
                   </div>
                   <div>
-                    <Link to="">Forget Password?</Link>
+                    <Link to="" className="text-sm md:text-md">
+                      Forget Password?
+                    </Link>
                   </div>
                 </div>
 

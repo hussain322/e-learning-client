@@ -4,7 +4,7 @@ import { Link, useRouteError } from "react-router-dom";
 const ErrorPage = () => {
   const error = useRouteError();
   return (
-    <section className="flex items-center h-screen p-16 bg-gray-100 text-gray-900">
+    <section className="flex items-center h-screen p-16 bg-gradient-to-r from-indigo-500 text-gray-900">
       <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ const ErrorPage = () => {
           </p>
           <Link
             to="/"
-            className="px-8 py-3 font-semibold rounded bg-blue-500 text-gray-900"
+            className="px-8 py-3 font-semibold rounded bg-blue-500 text-gray-200"
           >
             Back to homepage
           </Link>

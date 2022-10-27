@@ -1,5 +1,5 @@
 import React from "react";
-import brand from "../../../assets/brand (2).jpg";
+import brand from "../../../assets/brand__2_-removebg-preview.png";
 
 const Footer = () => {
   return (

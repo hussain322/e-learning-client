@@ -11,7 +11,7 @@ const Hero = () => {
           <h5 className="text-orange-500 text-lg font-semibold">
             Are you ready to learn?
           </h5>
-          <h1 className="text-6xl font-bold ">
+          <h1 className="text-3xl lg:text-6xl font-bold ">
             Find out the easy way <br /> on
             <span className="text-orange-500 ml-2">any schedule</span>
           </h1>

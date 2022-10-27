@@ -11,4 +11,8 @@
   .hero-title {
     margin-top: 0px;
   }
+  .hero-container {
+    min-height: 60vh;
+    margin-bottom: 50px;
+  }
 }

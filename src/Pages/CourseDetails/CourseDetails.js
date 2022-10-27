@@ -19,7 +19,9 @@ const CourseDetails = () => {
   return (
     <div>
       <div className="bg-black flex justify-between items-center">
-        <h1 className="text-4xl text-white font-bold py-10 ml-20">{title}</h1>
+        <h1 className="text-xl lg:text-4xl text-white font-bold p-10">
+          {title}
+        </h1>
         <PdfFile course={course}></PdfFile>
       </div>
       <div className="w-[90%] mx-auto my-20">
@@ -41,7 +43,9 @@ const CourseDetails = () => {
                 </Link>
               </div>
               <div>
-                <span className="text-2xl font-semibold">Ratings: </span>
+                <span className="text-md lg:text-2xl ml-2 font-semibold">
+                  Ratings:{" "}
+                </span>
                 <div className="rating">
                   <input
                     type="radio"
