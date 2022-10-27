@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
-import SingleCourse from "../SingleCourse/SingleCourse";
+import SingleCourse from "./SingleCourse/SingleCourse";
 import "./Courses.css";
 import SlideBar from "./SlideBar/SlideBar";
 

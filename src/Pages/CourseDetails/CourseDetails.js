@@ -22,7 +22,7 @@ const CourseDetails = () => {
         <h1 className="text-4xl text-white font-bold py-10 ml-20">{title}</h1>
         <PdfFile course={course}></PdfFile>
       </div>
-      <div className="w-[90%] mx-auto">
+      <div className="w-[90%] mx-auto my-20">
         <div className="border shadow-xl sm:w-full lg:w-[60%] rounded-xl mt-4">
           <img
             src={img}
@@ -34,7 +34,7 @@ const CourseDetails = () => {
             <p>Instructor: {instructor}</p>
             <div className="flex justify-between">
               <div className="mt-2">
-                <Link to={`../course/${id}`}>
+                <Link to={`../premium/${id}`}>
                   <button className="btn btn-outline btn-secondary">
                     Get Premium Access
                   </button>
@@ -77,7 +77,7 @@ const CourseDetails = () => {
           </div>
         </div>
 
-        <div className="mt-6 bg-blue-50 p-10 rounded-lg shadow-lg">
+        <div className="mt-10 bg-blue-50 p-10 rounded-lg shadow-lg">
           <h2 className="text-2xl font-bold">Course Overview</h2>
           <hr className="h-1 bg-black mt-2" />
           <br />

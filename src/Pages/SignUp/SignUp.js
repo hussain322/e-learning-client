@@ -54,7 +54,9 @@ const SignUp = () => {
         handleUpdateUserProfile(name, photoURL);
         handleEmailVerification();
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        setError(error.message);
+      });
   };
 
   //Update Profile
