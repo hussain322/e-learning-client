@@ -14,6 +14,7 @@ const Header = () => {
       })
       .catch((error) => console.error(error));
   };
+
   return (
     <div className=" shadow-lg">
       <div className="navbar w-[90%] mx-auto">
@@ -36,7 +37,7 @@ const Header = () => {
             <Link to="/courses" className="ml-6 text-black font-semibold">
               Our Courses
             </Link>
-            <Link to="" className="ml-6 text-black font-semibold">
+            <Link to="/faq" className="ml-6 text-black font-semibold">
               FAQ
             </Link>
             <Link to="/blog" className="ml-6 text-black font-semibold">

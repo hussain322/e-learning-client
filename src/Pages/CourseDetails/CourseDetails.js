@@ -4,7 +4,6 @@ import PdfFile from "../PdfFile/PdfFile";
 
 const CourseDetails = () => {
   const course = useLoaderData();
-  console.log(course);
   const {
     id,
     title,
