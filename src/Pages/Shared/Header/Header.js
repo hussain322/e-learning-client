@@ -34,7 +34,7 @@ const Header = () => {
               Home
             </Link>
             <Link to="/courses" className="ml-6 text-black font-semibold">
-              Courses
+              Our Courses
             </Link>
             <Link to="" className="ml-6 text-black font-semibold">
               FAQ

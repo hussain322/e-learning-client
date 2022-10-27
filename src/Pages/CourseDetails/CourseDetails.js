@@ -1,10 +1,12 @@
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
+import PdfFile from "../PdfFile/PdfFile";
 
 const CourseDetails = () => {
   const course = useLoaderData();
   console.log(course);
   const {
+    id,
     title,
     description,
     img,
@@ -16,10 +18,9 @@ const CourseDetails = () => {
   } = course;
   return (
     <div>
-      <div className="bg-black ">
-        <h1 className="text-4xl text-white font-bold py-10 w-[90%] mx-auto">
-          {title}
-        </h1>
+      <div className="bg-black flex justify-between items-center">
+        <h1 className="text-4xl text-white font-bold py-10 ml-20">{title}</h1>
+        <PdfFile course={course}></PdfFile>
       </div>
       <div className="w-[90%] mx-auto">
         <div className="border shadow-xl sm:w-full lg:w-[60%] rounded-xl mt-4">
@@ -33,9 +34,11 @@ const CourseDetails = () => {
             <p>Instructor: {instructor}</p>
             <div className="flex justify-between">
               <div className="mt-2">
-                <button className="btn btn-outline btn-secondary">
-                  Get Premium Access
-                </button>
+                <Link to={`../course/${id}`}>
+                  <button className="btn btn-outline btn-secondary">
+                    Get Premium Access
+                  </button>
+                </Link>
               </div>
               <div>
                 <span className="text-2xl font-semibold">Ratings: </span>
